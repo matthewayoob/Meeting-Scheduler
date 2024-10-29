@@ -1,6 +1,6 @@
 **How to Run and Test the Code**
 
-To test the code, copy and paste it into any Python environment, such as a Jupyter notebook, Python script, or an online IDE like Replit. The test cases are included at the bottom of the script, and running the code will print “All tests passed” if everything is working correctly.
+To test the code, copy and paste it into any Python environment, such as a Jupyter notebook, Python script, or an online IDE like Replit. The test cases are included at the bottom of the script, and running the code will print "All tests in suite passed." if everything is working correctly.
 
 ---
 
@@ -47,4 +47,4 @@ The algorithm prioritizes the earliest available slots in the day. It starts fro
 
 **Growth Opportunities**
 
-More robust test suite. I tested edge cases throughout, but I would create a more explicit testing mechanism. With midterms, want to send this over ASAP. 
+More robust test suite. I tested edge cases throughout, but I would create a more explicit testing mechanism. I only included the provided test in the suite for continuity, but it is naturally expandable. 
