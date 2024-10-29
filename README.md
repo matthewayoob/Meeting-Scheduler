@@ -43,3 +43,8 @@ Thus, the overall runtime complexity is O(N log N), dominated by the sorting ste
 **“Best Time” Consideration**
 
 The algorithm prioritizes the earliest available slots in the day. It starts from midnight (00:00) and checks for the first available free slots, returning up to 5 valid options. This ensures users are presented with the earliest suitable times. This could be easily changed to certain agreed-on workday time ranges!
+---
+
+**Growth Opportunities**
+
+More robust test suite. I tested edge cases throughout, but I would create a more explicit testing mechanism. With midterms, want to send this over ASAP. 
