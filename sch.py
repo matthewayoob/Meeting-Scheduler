@@ -1,24 +1,24 @@
 from datetime import datetime, timedelta
 from typing import List, Dict, Optional, Tuple
 
+"""Convert ISO string to a datetime object."""
 def to_datetime(iso_str: str) -> datetime:
-    """Convert ISO string to a datetime object."""
     return datetime.fromisoformat(iso_str.replace("Z", "+00:00"))
 
+"""Convert a datetime object back to ISO string."""
 def to_iso(dt: datetime) -> str:
-    """Convert a datetime object back to ISO string."""
     return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
+"""Flatten and sort all busy intervals by start time."""
 def flatten_and_sort_intervals(schedules: List[List[Dict[str, str]]]) -> List[Tuple[datetime, datetime]]:
-    """Flatten and sort all busy intervals by start time."""
     intervals = [
         (to_datetime(interval['start']), to_datetime(interval['end']))
         for schedule in schedules for interval in schedule
     ]
     return sorted(intervals, key=lambda x: x[0])
 
+"""Merge overlapping or adjacent intervals."""
 def merge_intervals(busy_intervals: List[Tuple[datetime, datetime]]) -> List[Tuple[datetime, datetime]]:
-    """Merge overlapping or adjacent intervals."""
     merged = []
     for start, end in busy_intervals:
         if merged and merged[-1][1] >= start:
@@ -27,8 +27,8 @@ def merge_intervals(busy_intervals: List[Tuple[datetime, datetime]]) -> List[Tup
             merged.append((start, end))
     return merged
 
+"""Identify free intervals between merged busy intervals."""
 def find_free_intervals(merged_intervals: List[Tuple[datetime, datetime]]) -> List[Tuple[datetime, datetime]]:
-    """Identify free intervals between merged busy intervals."""
     free_intervals = []
     day_start = merged_intervals[0][0].replace(hour=0, minute=0, second=0, microsecond=0)
     day_end = day_start + timedelta(days=1)
@@ -50,10 +50,10 @@ def find_free_intervals(merged_intervals: List[Tuple[datetime, datetime]]) -> Li
 
     return free_intervals
 
+"""Filter free intervals to match the required duration."""
 def filter_valid_slots(
     free_intervals: List[Tuple[datetime, datetime]], duration: int
 ) -> List[Dict[str, str]]:
-    """Filter free intervals to match the required duration."""
     valid_slots = []
     for start, end in free_intervals:
         if (end - start).total_seconds() >= duration * 60:
@@ -65,8 +65,8 @@ def filter_valid_slots(
                 break
     return valid_slots
 
+"""Main function to find available slots."""
 def findAvailableSlots(schedules: List[List[Dict[str, str]]], duration: int) -> Optional[List[Dict[str, str]]]:
-    """Main function to find available slots."""
     if not schedules or duration <= 0:
         return None
 
@@ -77,24 +77,7 @@ def findAvailableSlots(schedules: List[List[Dict[str, str]]], duration: int) -> 
 
     return valid_slots if valid_slots else None
 
-# # Example usage:
-# schedules = [
-#     [{"start": "2023-10-17T09:00:00Z", "end": "2023-10-17T10:30:00Z"},
-#      {"start": "2023-10-17T12:00:00Z", "end": "2023-10-17T13:00:00Z"},
-#      {"start": "2023-10-17T16:00:00Z", "end": "2023-10-17T18:00:00Z"}],
-#     [{"start": "2023-10-17T10:00:00Z", "end": "2023-10-17T11:30:00Z"},
-#      {"start": "2023-10-17T12:30:00Z", "end": "2023-10-17T14:30:00Z"},
-#      {"start": "2023-10-17T14:30:00Z", "end": "2023-10-17T15:00:00Z"},
-#      {"start": "2023-10-17T16:00:00Z", "end": "2023-10-17T17:00:00Z"}],
-#     [{"start": "2023-10-17T11:00:00Z", "end": "2023-10-17T11:30:00Z"},
-#      {"start": "2023-10-17T12:00:00Z", "end": "2023-10-17T13:30:00Z"},
-#      {"start": "2023-10-17T14:00:00Z", "end": "2023-10-17T16:30:00Z"}]
-# ]
-# duration = 30
-
-# result = findAvailableSlots(schedules, duration)
-# print(result)
-
+"""Test Suite."""
 def test_findAvailableSlots():
     schedules = [
         [
