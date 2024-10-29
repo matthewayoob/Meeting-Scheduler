@@ -1,15 +1,16 @@
-How to Run and Test the Code
+**How to Run and Test the Code**
+
 To test the code, copy and paste it into any Python environment, such as a Jupyter notebook, Python script, or an online IDE like Replit. The test cases are included at the bottom of the script, and running the code will print “All tests passed” if everything is working correctly.
 
-Explanation of the Algorithm
+**Explanation of the Algorithm**
 
 The goal of the algorithm is to identify available time slots of a given duration from multiple overlapping schedules. We merge busy intervals from these schedules to avoid conflicts and then search for gaps between the merged intervals as potential free slots.
 
-Algorithm Design Choices + Steps:
+**Algorithm Design Choices + Steps:**
 
-	1.	Flatten and Sort Intervals:
+1. Flatten and Sort Intervals:
 	•	All busy intervals from multiple schedules are flattened into a single list and sorted by start time.
-	2.	Merge Overlapping Intervals:
+2.	Merge Overlapping Intervals:
 	•	Overlapping or adjacent intervals are merged to avoid scheduling conflicts and minimize redundancy.
 	3.	Find Free Intervals:
 	•	We identify gaps between merged intervals and calculate the time between them as free slots.
