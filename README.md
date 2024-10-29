@@ -12,18 +12,11 @@ The goal of the algorithm is to identify available time slots of a given duratio
 
 **Algorithm Design Choices + Steps**
 
-1. Flatten and Sort Intervals
-• All busy intervals from multiple schedules are flattened into a single list and sorted by start time.
-2. Merge Overlapping Intervals
-• Overlapping or adjacent intervals are merged to avoid scheduling conflicts and minimize redundancy.
-3. Find Free Intervals
-• We identify gaps between merged intervals and calculate the time between them as free slots.
-4. Filter Valid Slots by Duration
-• From the free intervals, we select those that meet the required duration and return the first 5 slots (if available).
-5. Edge Case Handling
-   
-• If no valid free slots are found, the function returns None.
-• It also gracefully handles empty schedules and negative durations.
+1. Flatten and Sort Intervals: All busy intervals from multiple schedules are flattened into a single list and sorted by start time.
+2. Merge Overlapping Intervals: Overlapping or adjacent intervals are merged to avoid scheduling conflicts and minimize redundancy.
+3. Find Free Intervals: We identify gaps between merged intervals and calculate the time between them as free slots.
+4. Filter Valid Slots by Duration: From the free intervals, we select those that meet the required duration and return the first 5 slots (if available).
+5. Edge Case Handling: If no valid free slots are found, the function returns None. It also gracefully handles empty schedules and negative durations.
 
 ---
 
@@ -37,7 +30,7 @@ The goal of the algorithm is to identify available time slots of a given duratio
 
   • Filtering Valid Slots: O(M), as we filter the free slots by the required duration.
 
-Thus, the overall runtime complexity is O(N log N), dominated by the sorting step. This makes the algorithm efficient even for large inputs.
+Thus, the overall runtime complexity is O(N log N), dominated by the sorting step. This makes the algorithm relatively efficient even for large inputs.
 
 ---
 
