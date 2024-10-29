@@ -22,6 +22,7 @@ The goal of the algorithm is to identify available time slots of a given duratio
 • From the free intervals, we select those that meet the required duration and return the first 5 slots (if available).
 5. Edge Case Handling
 • If no valid free slots are found, the function returns None.
+
 • It also gracefully handles empty schedules and negative durations.
 
 ---
