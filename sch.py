@@ -109,4 +109,4 @@ def test_findAvailableSlots():
 
 # Run the updated test
 test_findAvailableSlots()
-print("All tests passed.")
+print("All tests in suite passed.")
