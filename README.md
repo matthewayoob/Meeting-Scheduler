@@ -2,9 +2,13 @@
 
 To test the code, copy and paste it into any Python environment, such as a Jupyter notebook, Python script, or an online IDE like Replit. The test cases are included at the bottom of the script, and running the code will print “All tests passed” if everything is working correctly.
 
+---
+
 **Explanation of the Algorithm**
 
 The goal of the algorithm is to identify available time slots of a given duration from multiple overlapping schedules. We merge busy intervals from these schedules to avoid conflicts and then search for gaps between the merged intervals as potential free slots.
+
+---
 
 **Algorithm Design Choices + Steps**
 
@@ -20,17 +24,21 @@ The goal of the algorithm is to identify available time slots of a given duratio
 • If no valid free slots are found, the function returns None.
 • It also gracefully handles empty schedules and negative durations.
 
+---
+
 **Time Complexity**
 
-• Flattening and Sorting: O(N log N), where N is the total number of intervals.
+  • Flattening and Sorting: O(N log N), where N is the total number of intervals.
 
-• Merging Intervals: O(N), as we iterate through the sorted list once.
+  • Merging Intervals: O(N), as we iterate through the sorted list once.
 
-• Finding Free Intervals: O(M), where M is the number of merged intervals.
+  • Finding Free Intervals: O(M), where M is the number of merged intervals.
 
-• Filtering Valid Slots: O(M), as we filter the free slots by the required duration.
+  • Filtering Valid Slots: O(M), as we filter the free slots by the required duration.
 
 Thus, the overall runtime complexity is O(N log N), dominated by the sorting step. This makes the algorithm efficient even for large inputs.
+
+---
 
 **“Best Time” Consideration**
 
