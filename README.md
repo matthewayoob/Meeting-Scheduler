@@ -21,12 +21,17 @@ The goal of the algorithm is to identify available time slots of a given duratio
 • It also gracefully handles empty schedules and negative durations.
 
 **Time Complexity**
+
 • Flattening and Sorting: O(N log N), where N is the total number of intervals.
+
 • Merging Intervals: O(N), as we iterate through the sorted list once.
+
 • Finding Free Intervals: O(M), where M is the number of merged intervals.
+
 • Filtering Valid Slots: O(M), as we filter the free slots by the required duration.
 
 Thus, the overall runtime complexity is O(N log N), dominated by the sorting step. This makes the algorithm efficient even for large inputs.
 
 **“Best Time” Consideration**
+
 The algorithm prioritizes the earliest available slots in the day. It starts from midnight (00:00) and checks for the first available free slots, returning up to 5 valid options. This ensures users are presented with the earliest suitable times. This could be easily changed to certain agreed-on workday time ranges!
